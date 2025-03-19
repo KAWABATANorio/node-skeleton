@@ -1,0 +1,27 @@
+{
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "dynamicImport": true
+    },
+    "target": "es2022",
+    "loose": false,
+    "minify": {
+      "compress": false,
+      "mangle": false
+    },
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./tests/*"]
+    }
+  },
+  "module": {
+    "type": "nodenext",
+    "resolveFully": true
+  },
+  "sourceMaps": true,
+  "minify": false,
+  "isModule": true
+}
