@@ -9,11 +9,15 @@
     "dev": "bun run --hot src/index.ts",
     "build": "tsc --noEmit && npm run lint && swc src -d dist --delete-dir-on-start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "apidoc": "apidoc -i src/ -o doc/api -c doc/apidoc.json"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.4.3",
     "dotenv": "^16.4.7",
-    "loglevel": "^1.9.2"
+    "hono": "^4.7.5",
+    "loglevel": "^1.9.2",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -23,6 +27,7 @@
     "@types/bun": "^1.2.5",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.10",
+    "apidoc": "^1.2.0",
     "bun": "^1.2.5",
     "eslint-plugin-prettier": "^5.2.3",
     "jest": "^29.7.0",
