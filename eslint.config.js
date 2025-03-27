@@ -11,7 +11,7 @@ export default [
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  { ignores: ['dist', 'doc'] },
+  { ignores: ['dist'] },
   {
     files: ['**/*.ts'],
     plugins: {

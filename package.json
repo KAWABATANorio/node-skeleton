@@ -4,7 +4,7 @@
   "scripts": {
     "bun": "bun",
     "dev": "bun run --hot src/index.ts",
-    "build": "tsc --noEmit && swc src -d dist --delete-dir-on-start",
+    "build": "tsc --noEmit && npm run lint && swc src -d dist --delete-dir-on-start",
     "test": "jest",
     "lint": "eslint ."
   },
