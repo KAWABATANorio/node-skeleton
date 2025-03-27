@@ -1,6 +1,9 @@
 {
   "name": "node-skeleton",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "bun": "bun",
     "dev": "bun run --hot src/index.ts",
