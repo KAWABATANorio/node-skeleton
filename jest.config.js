@@ -1,19 +1,19 @@
 export default {
-  "testEnvironment": "node",
-  "testMatch": [
-    "**/*.test.ts"
+  testEnvironment: 'node',
+  testMatch: [
+    '**/*.test.ts'
   ],
-  "transform": {
-    "^.+\\.(t|j)sx?$": "@swc/jest"
+  transform: {
+    '^.+\\.(t|j)sx?$': '@swc/jest'
   },
-  "extensionsToTreatAsEsm": [".ts"],
-  "transformIgnorePatterns": [],
-  "moduleNameMapper": {
-    "^~/(.*)$": "<rootDir>/src/$1",
-    "^(\\.{1,2}/.*)\\.js$": "$1"
+  extensionsToTreatAsEsm: ['.ts'],
+  transformIgnorePatterns: [],
+  moduleNameMapper: {
+    '^~/(.*)$': '<rootDir>/src/$1',
+    '^(\\.{1,2}/.*)\\.js$': '$1'
   },
-  "moduleFileExtensions": ["ts", "js"], 
-  "coveragePathIgnorePatterns": [
-    "/node_modules/"
+  moduleFileExtensions: ['ts', 'js'], 
+  coveragePathIgnorePatterns: [
+    '/node_modules/'
   ]
 }
