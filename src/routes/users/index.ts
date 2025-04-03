@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { z, zValidator } from '~/utils/validator'
 import logger from '~/utils/logger'
+import prisma from '~/utils/prisma'
 
 const routes = new Hono()
   /**
@@ -21,12 +22,11 @@ const routes = new Hono()
         userId: z.coerce.number().int(),
       })
     ),
-    c => {
+    async c => {
       const params = c.req.valid('param')
-      logger.debug(`id: ${typeof params.userId} ${params.userId}`)
-      return c.json({
-        name: 's.jobs',
-      })
+      const user = await prisma.users.findUnique({ where: { id: params.userId } })
+      logger.debug(user)
+      return c.json(user)
     }
   )
 
@@ -44,12 +44,14 @@ const routes = new Hono()
     zValidator(
       'json',
       z.object({
-        userId: z.number(),
+        email: z.coerce.string().email(),
+        name: z.string(),
       })
     ),
-    c => {
+    async c => {
       const params = c.req.valid('json')
-      logger.debug(`id: ${typeof params.userId} ${params.userId}`)
+      await prisma.users.create({ data: params })
+      logger.debug(`id: ${typeof params.email} ${params.name}`)
       return c.text('', 201)
     }
   )

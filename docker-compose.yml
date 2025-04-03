@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: mydb
+      MYSQL_PASSWORD: mydb
+      MYSQL_ROOT_HOST: "%"
+      TZ: "Asia/Tokyo"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysql
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_DB=mydb
+      - PMA_USER=mydb
+      - PMA_PASSWORD=mydb
